@@ -9,6 +9,12 @@ export type Locale = "nl" | "en" | "fr" | "de";
 
 export const content = {
   nl: {
+    contact: {
+      label: "Contact",
+      title: "Laten we verbinden.",
+      description: "Een vraag, een idee of zin om samen te werken? Mail ons gerust.",
+      back: "Terug naar de homepage",
+    },
     meta: {
       title: "Vastgoed.org | Jouw woning. Jouw sleutel.",
       description:
@@ -212,6 +218,12 @@ export const content = {
     },
   },
   en: {
+    contact: {
+      label: "Contact",
+      title: "Let's connect.",
+      description: "Have a question, an idea or want to work together? Send us an email.",
+      back: "Back to the homepage",
+    },
     meta: {
       title: "Vastgoed.org | Your property. Your key.",
       description:
@@ -414,6 +426,12 @@ export const content = {
     },
   },
   fr: {
+    contact: {
+      label: "Contact",
+      title: "Entrons en contact.",
+      description: "Une question, une idée ou envie de collaborer ? Envoyez-nous un e-mail.",
+      back: "Retour à l'accueil",
+    },
     meta: {
       title: "Vastgoed.org | Votre bien. Votre clé.",
       description:
@@ -621,6 +639,12 @@ export const content = {
     },
   },
   de: {
+    contact: {
+      label: "Kontakt",
+      title: "Lass uns vernetzen.",
+      description: "Eine Frage, eine Idee oder Interesse an einer Zusammenarbeit? Schreib uns eine E-Mail.",
+      back: "Zur Startseite",
+    },
     meta: {
       title: "Vastgoed.org | Deine Immobilie. Dein Schlüssel.",
       description:

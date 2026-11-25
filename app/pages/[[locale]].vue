@@ -156,6 +156,7 @@ onBeforeUnmount(() => {
           <a v-for="item in navItems" :key="item.id" :href="`#${item.id}`">{{
             item.label
           }}</a>
+          <NuxtLink :to="`${currentPath === '/' ? '' : currentPath}/contact`">{{ t.contact.label }}</NuxtLink>
         </nav>
         <div class="header-tools">
           <div ref="languagePicker" class="language-picker">
@@ -215,6 +216,7 @@ onBeforeUnmount(() => {
           @click="menuOpen = false"
           >{{ item.label }}<SiteIcon name="arrow"
         /></a>
+        <NuxtLink :to="`${currentPath === '/' ? '' : currentPath}/contact`" @click="menuOpen = false">{{ t.contact.label }}<SiteIcon name="arrow" /></NuxtLink>
         <a href="https://vastgoed.net/"
           >{{ t.nav.visit }}<SiteIcon name="diagonal"
         /></a>
@@ -611,6 +613,7 @@ onBeforeUnmount(() => {
           <p>{{ t.footer.description }}</p>
         </div>
         <div class="footer-right">
+          <NuxtLink :to="`${currentPath === '/' ? '' : currentPath}/contact`">{{ t.contact.label }}<SiteIcon name="arrow" /></NuxtLink>
           <a
             href="https://github.com/nostr-protocol/nips/blob/master/99.md"
             target="_blank"

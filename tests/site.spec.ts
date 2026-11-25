@@ -5,6 +5,27 @@ for (const { code } of locales) {
   const path = code === "nl" ? "/" : `/${code}`;
   const t = content[code];
 
+  test(`${code}: contact page and email link`, async ({ page }) => {
+    await page.goto(path);
+    await page.locator(".footer-right").getByRole("link", { name: t.contact.label }).click();
+    const contactPath = code === "nl" ? "/contact" : `/${code}/contact`;
+    await expect(page).toHaveURL(contactPath);
+    await page.reload();
+    await expect(page.locator("html")).toHaveAttribute("lang", code);
+    await expect(page).toHaveTitle(`${t.contact.label} | Vastgoed.org`);
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(t.contact.title);
+    await expect(page.getByRole("link", { name: "info@vastgoed.org" })).toHaveAttribute("href", "mailto:info@vastgoed.org");
+    for (const width of [320, 768, 1440]) {
+      await page.setViewportSize({ width, height: 900 });
+      expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+    }
+    await page.getByRole("link", { name: "EN", exact: true }).click();
+    await expect(page).toHaveURL("/en/contact");
+    await expect(page.getByRole("heading", { level: 1 })).toHaveText(content.en.contact.title);
+    await page.getByRole("link", { name: content.en.contact.back }).click();
+    await expect(page).toHaveURL("/en");
+  });
+
   test(`${code}: localized page, metadata, images and no browser errors`, async ({
     page,
   }) => {
